@@ -18,6 +18,10 @@
    </sitemap>
    <sitemap>
       <loc>https://service.assetflowautomations.com/purchaser</loc>
-      <lastmod>2024-11-24</lastmod>
+      <lastmod>2024-12-01</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://service.assetflowautomations.com/purchaser/management/</loc>
+      <lastmod>2024-12-01</lastmod>
    </sitemap>
 </sitemapindex>
