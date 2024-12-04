@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="This page will provide you with a form for you to complete.">
     <title>AssetFlow Automations Service/Purchaser</title>
-    <link rel="sitemap" type="application/xml" href="https://service.assetflowautomations.com/purchaser/management/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="https://service.assetflowautomations.com/purchaser/sitemap.xml" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -372,9 +372,73 @@
         border-radius: 5px;
         font-size: 16px;
     }
-    
-        
 
+    /* Container styling for positioning */
+    .gold-menu-container {
+        position: relative; /* Relative to allow overlay positioning */
+    }
+
+    /* Gold button styling */
+    .gold-menu-button {
+        background-color: #FFD700; /* Gold background */
+        color: #000; /* Black text for contrast */
+        font-size: 24px; /* Large button text */
+        border: 2px solid #B8860B; /* Slightly darker border */
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gold-menu-button:hover {
+        background-color: #FFDF00; /* Lighter gold on hover */
+        box-shadow: 0 0 15px #FFD700; /* Gold glow */
+        transform: scale(1.05);
+    }
+
+    /* Hidden overlay by default */
+    .menu-overlay {
+        position: absolute;
+        top: 50px; /* Positioned below the button */
+        right: -30px;
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+        color: #FFD700; /* Gold text color */
+        width: 200px;
+        display: none; /* Hidden initially */
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        opacity: 0; /* Transparent initially */
+        transform: translateY(-20px); /* Slide up initially */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide */
+        overflow-y: auto; /* Adds vertical scroll when content overflows */
+        max-height: 300px; /* Limit the height of the overlay */
+    }
+
+    /* Links inside the overlay */
+    .menu-overlay a {
+        text-decoration: none;
+        color: #FFD700; /* Gold links */
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        transition: color 0.2s ease;
+    }
+
+    .menu-overlay a:hover {
+        color: #FFDF00;
+    }
+
+
+    /* Active menu overlay (visible with animation) */
+    .menu-overlay.active {
+        display: flex; /* Display as a column */
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Slide into place */
+    }
+
+        
 /* Mobile Styling */
 @media (max-width: 768px) {
     /* Header Adjustments */
@@ -438,7 +502,71 @@
     .project-eco h2 {
         font-size: 24px; /* Adjusts text size for smaller screens */
     }
-}
+
+    /* Container styling for positioning */
+    .gold-menu-container {
+        position: relative; /* Relative to allow overlay positioning */
+    }
+
+    /* Gold button styling */
+    .gold-menu-button {
+        background-color: #FFD700; /* Gold background */
+        color: #000; /* Black text for contrast */
+        font-size: 24px; /* Large button text */
+        border: 2px solid #B8860B; /* Slightly darker border */
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gold-menu-button:hover {
+        background-color: #FFDF00; /* Lighter gold on hover */
+        box-shadow: 0 0 15px #FFD700; /* Gold glow */
+        transform: scale(1.05);
+    }
+
+    /* Hidden overlay by default */
+    .menu-overlay {
+        position: absolute;
+        top: 50px; /* Positioned below the button */
+        right: -30px;
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+        color: #FFD700; /* Gold text color */
+        width: 200px;
+        display: none; /* Hidden initially */
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        opacity: 0; /* Transparent initially */
+        transform: translateY(-20px); /* Slide up initially */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide */
+        overflow-y: auto; /* Adds vertical scroll when content overflows */
+        max-height: 300px; /* Limit the height of the overlay */
+    }
+
+    /* Links inside the overlay */
+    .menu-overlay a {
+        text-decoration: none;
+        color: #FFD700; /* Gold links */
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        transition: color 0.2s ease;
+    }
+
+    .menu-overlay a:hover {
+        color: #FFDF00;
+    }
+
+
+    /* Active menu overlay (visible with animation) */
+    .menu-overlay.active {
+        display: flex; /* Display as a column */
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Slide into place */
+    }
 
 /* Smaller Mobile Adjustments */
 @media (max-width: 700px) {
@@ -476,7 +604,7 @@
 
 
 
-    <!-- Intro overlay -->
+<!-- Intro overlay -->
 <div id="intro">
     <div class="spinner-container">
         <img src="ANewWorld3.png" alt="Back Image" class="spinner back-image">
@@ -496,16 +624,62 @@
             <!-- Company Name -->
             <h1>AssetFlow Automations</h1>
 
-            <!-- Navigation Buttons -->
-            <nav>
-                <button onclick="location.href='https://www.assetflowautomations.com/'">Home</button>
-                <button onclick="location.href='https://service.assetflowautomations.com/observer'">Observe</button>
-                <button onclick="scrollToSection('footer')">Contact</button>
-            </nav>
+<!-- Gold Menu -->
+<nav class="gold-menu-container">
+    <button class="gold-menu-button" onclick="toggleMenu()">☰</button>
+    <div id="menu-overlay" class="menu-overlay">
+        <h3 style="font-size: 20px;">Main</h3>
+        <a href="https://www.assetflowautomations.com/">Home</a>
+        <a href="https://service.assetflowautomations.com/">Service</a>
+        <a href="https://pricing.assetflowautomations.com/">Pricing</a>
+        <br>
+        <h3 style="font-size: 20px;">Plans</h3>
+        <a href="https://service.assetflowautomations.com/purchaser">Hand-Off</a>
+        <a href="https://service.assetflowautomations.com/purchaser/management">Management</a>        
+        <br>
+        <h3 style="font-size: 20px;">Documentation</h3>
+        <a href="https://documentation.assetflowautomations.com/">Documents</a>        
+        <br>
+        <h3 style="font-size: 20px;">Contact</h3>
+        <a href="mailto:support@assetflowautomations.com?subject=Support%20Request&body=Hello%2C%0D%0A%0D%0AI%20need%20assistance%20with...">Support(email)</a>
+        <a href="mailto:info@assetflowautomations.com?subject=Information%20Request&body=Dear%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20know%20more%20about...">Info(email)</a>
+<a href="https://wa.me/447887333872?text=Hello%2C%20I'm%20interested%20in%20your%20services" target="_blank">WhatsApp</a>
+        <br>       
+    </div>
+</nav>
         </div>
     </header>
 </div>
 
+<!--CSS-->
+<style>
+    @media (max-width: 768px) {
+        .menu-overlay {
+            top: 60px; /* Positioned below the button */
+            left: -75px;
+        }
+    }
+</style>
+<!-- JavaScript -->
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu-overlay');
+        if (menu.classList.contains('active')) {
+            menu.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                menu.style.display = 'none'; // Hide after fade-out
+                menu.classList.remove('active'); // Remove active class
+            }, 300); // Match transition duration
+        } else {
+            menu.style.display = 'flex'; // Show before fading in
+            setTimeout(() => {
+                menu.classList.add('active'); // Add active class for fade-in
+                menu.style.opacity = '1'; // Trigger fade-in
+            }, 10); // Delay for smooth transition
+        }
+    }
+</script>
+    
 <script>
     // Smooth scrolling script
     function scrollToSection(sectionId) {
