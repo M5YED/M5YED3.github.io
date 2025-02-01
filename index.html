@@ -658,7 +658,7 @@ body {
         var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
         v.onload = function() {
             window.voiceflow.chat.load({
-                verify: { projectID: '672f9a87dd74c835a2761c60' }, // AFA Voiceflow project ID
+                verify: { projectID: '6793b7b8350d655370728ba7' }, // AFA Voiceflow project ID
                 url: 'https://general-runtime.voiceflow.com',
                 versionID: 'production'
             }).then(() => {
@@ -680,7 +680,7 @@ body {
             }).catch(err => console.error("Error loading Voiceflow chat:", err));
         };
 
-        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
         v.type = "text/javascript"; 
         s.parentNode.insertBefore(v, s);
     })(document, 'script');
@@ -740,9 +740,9 @@ body {
       try {
         // Initialize Voiceflow Web Chat widget
         await window.voiceflow.chat.load({
-          verify: { projectID: '6792db7d018b19e306765623' },
+          verify: { projectID: '6793b7b8350d655370728ba7' },
           url: 'https://general-runtime.voiceflow.com',
-          versionID: 'development',
+          versionID: 'production',
           showInitialMessage: false,
           showLauncher: false,
         });
